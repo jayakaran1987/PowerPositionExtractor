@@ -1,0 +1,37 @@
+{{- $appName := .Release.Name }}
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: {{ $appName }}
+  namespace: default
+  labels:
+    app: {{ $appName }}
+    version: v1
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app:  {{ $appName }}
+  template:
+    metadata:
+      labels:
+        app: {{ $appName }}
+    spec:
+      containers:
+      - name: {{ $appName }}
+        image: {{ .Values.images.powerPositionExtractor.repository }}.{{ .Values.images.powerPositionExtractor.tag | default .Chart.AppVersion }}
+        imagePullPolicy: Always
+        env:
+        {{range $k, $v := .Values.env}}
+          - name: {{$k | quote}}
+            value: {{$v | quote}}
+        {{- end}}
+        volumeMounts:
+        - name: appsettings-volume
+          mountPath: /publish/appsettings.k8s.json
+          subPath: appsettings.k8s.json
+      volumes:
+      - name: appsettings-volume
+        ConfigMap:
+          name: appsettings-{{ $appName }}

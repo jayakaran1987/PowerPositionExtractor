@@ -1,0 +1,17 @@
+images:
+  powerPositionExtractor:
+    repository: "repo-url"
+    tag: latest
+
+env:
+  "ASPNETCORE_ENVIRONMENT": "dev"
+
+appsettings: |-
+  {
+    "ExtractorOptions": {
+          "ScheduledTimeIntervalInMinutes": 50,
+          "LocalTimeZone": "Europe/London",
+          "StoragePath": "gs://bucket-name",
+          "StorageStrategy": "GCP"
+      }
+  }
