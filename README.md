@@ -9,6 +9,10 @@ This application retrieves power trades from a given service, aggregates the dat
 - **Flexible Storage Strategy**: considered storagePath supports both local file systems and cloud storage providers
 - **Why is Kubernetes CronJob not used?** Because it is not acceptable to miss a scheduled extract.
 
+## Testing
+
+Unit tests cover some core business logic only due to the time limitation
+
 ## Configuration
 
 Configuration is managed for locally `appsettings.json`,  for Kubernetes deployment under the  helm values file :
