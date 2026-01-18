@@ -1,0 +1,2 @@
+# PowerPositionExtractor
+Development Challenge
