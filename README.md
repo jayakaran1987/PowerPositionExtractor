@@ -7,7 +7,7 @@ This application retrieves power trades from a given service, aggregates the dat
 
 - **Background Service vs Windows Service**: Built as a .NET Background Service instead of a Windows Service to support Kubernetes deployment and containerization
 - **Flexible Storage Strategy**: considered storagePath supports both local file systems and cloud storage providers
-- **Why is Kubernetes CronJob not used? Because it is not acceptable to miss a scheduled extract.
+- **Why is Kubernetes CronJob not used?** Because it is not acceptable to miss a scheduled extract.
 
 ## Configuration
 
