@@ -31,7 +31,7 @@ Configuration is managed for locally `appsettings.json`,  for Kubernetes deploym
 
 ```bash
 # Build
-docker build -f docker/Dockerfile -t power-position-worker:0.1 .
+docker build -f docker/powerPositionExtractor.Dockerfile -t power-position-worker:0.1 .
 ```
 
 ## Kubernetes Deployment (not tested)
